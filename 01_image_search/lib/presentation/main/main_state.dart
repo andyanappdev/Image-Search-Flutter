@@ -11,6 +11,8 @@ class MainState with _$MainState {
   const factory MainState({
     @Default([]) List<Photo> photos,
     @Default(false) bool isLoading,
+    @Default(false) bool isRefreshing,
+    @Default('') String searchQuery,
   }) = _MainState;
 
   factory MainState.fromJson(Map<String, Object?> json) =>
