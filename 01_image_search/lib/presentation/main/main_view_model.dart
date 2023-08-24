@@ -37,7 +37,11 @@ class MainViewModel with ChangeNotifier {
   Future<void> fetchImages(String query) async {
     if (query.isEmpty) {
       _eventController.add(const ShowSnackBar('No Search Terms'));
+      return;
     }
+
+    _state = state.copyWith(isLoading: true);
+    notifyListeners();
 
     final result = await _getTopFiveMostViewedImagesUseCase.execute(query);
 
