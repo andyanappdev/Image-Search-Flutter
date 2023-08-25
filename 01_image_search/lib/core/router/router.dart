@@ -23,7 +23,7 @@ final router = GoRouter(
       },
     ),
     GoRoute(
-      path: 'detail',
+      path: '/detail',
       builder: (context, state) {
         final Photo photo = state.extra as Photo;
         return DetailScreen(photo: photo);

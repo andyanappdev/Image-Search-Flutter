@@ -126,7 +126,7 @@ class _MainScreenState extends State<MainScreen> {
           padding: const EdgeInsets.all(6.0),
           child: InkWell(
             onTap: () {
-              context.push('/main/detail', extra: photo);
+              context.push('/detail', extra: photo);
             },
             child: Card(
               shape: RoundedRectangleBorder(
