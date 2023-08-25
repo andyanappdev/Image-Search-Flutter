@@ -59,7 +59,6 @@ class _MainScreenState extends State<MainScreen> {
         ),
         body: Column(
           children: [
-            // Text('Test: ${dotenv.get('PIXABAYAPIKEY')}'),
             searchTextField(context, viewModel),
             Expanded(
               child: LayoutBuilder(
@@ -128,14 +127,17 @@ class _MainScreenState extends State<MainScreen> {
             onTap: () {
               context.push('/detail', extra: photo);
             },
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              elevation: 4.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: Image.network(photo.url, fit: BoxFit.cover),
+            child: Hero(
+              tag: photo.pageUrl,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+                elevation: 4.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.network(photo.webformatURL, fit: BoxFit.cover),
+                ),
               ),
             ),
           ),

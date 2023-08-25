@@ -6,8 +6,9 @@ extension ToPhoto on Hits {
     return Photo(
       id: id ?? 0,
       owner: user ?? '',
+      ownerImageURL: userImageURL ?? '',
       pageUrl: pageURL ?? '',
-      url: webformatURL ?? '',
+      webformatURL: webformatURL ?? '',
       tags: tags ?? '',
       views: views ?? 0,
       likes: likes ?? 0,

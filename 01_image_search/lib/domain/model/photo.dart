@@ -10,8 +10,9 @@ class Photo with _$Photo {
   const factory Photo({
     required num id,
     required String owner,
+    required String ownerImageURL,
     required String pageUrl,
-    required String url,
+    required String webformatURL,
     required String tags,
     required num views,
     required num likes,
