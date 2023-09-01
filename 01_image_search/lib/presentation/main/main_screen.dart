@@ -24,7 +24,15 @@ class _MainScreenState extends State<MainScreen> {
       context.read<MainViewModel>().eventStream.listen((event) {
         switch (event) {
           case ShowSnackBar(:final message):
-            final snackBar = SnackBar(content: Text(message));
+            final snackBar = SnackBar(
+              content: Text(
+                message,
+                textAlign: TextAlign.start,
+                style: const TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.black26,
+              duration: const Duration(seconds: 3),
+            );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       });
