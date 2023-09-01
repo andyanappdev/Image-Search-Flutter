@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:image_search_app/data/data_source/remote/api/pixabay_api.dart';
 import 'package:image_search_app/data/repository/photo_repository_impl.dart';
 import 'package:image_search_app/domain/model/photo.dart';
-import 'package:image_search_app/domain/use_case/get_top_five_most_viewed_images_use_case.dart';
+import 'package:image_search_app/domain/use_case/get_top_ten_most_viewed_images_use_case.dart';
 import 'package:image_search_app/presentation/detail/detail_screen.dart';
 import 'package:image_search_app/presentation/main/main_screen.dart';
 import 'package:image_search_app/presentation/main/main_view_model.dart';
@@ -16,7 +16,7 @@ final router = GoRouter(
       path: '/main',
       builder: (context, state) {
         return ChangeNotifierProvider(
-          create: (_) => MainViewModel(GetTopFiveMostViewedImagesUseCase(
+          create: (_) => MainViewModel(GetTopTenMostViewedImagesUseCase(
               PhotoRepositoryImpl(PixabayApi()))),
           child: const MainScreen(),
         );

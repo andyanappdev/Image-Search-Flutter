@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:image_search_app/core/result.dart';
-import 'package:image_search_app/domain/use_case/get_top_five_most_viewed_images_use_case.dart';
+import 'package:image_search_app/domain/use_case/get_top_ten_most_viewed_images_use_case.dart';
 import 'package:image_search_app/presentation/main/main_state.dart';
 import 'package:image_search_app/presentation/main/main_ui_event.dart';
 
 class MainViewModel with ChangeNotifier {
-  final GetTopFiveMostViewedImagesUseCase _getTopFiveMostViewedImagesUseCase;
+  final GetTopTenMostViewedImagesUseCase _getTopFiveMostViewedImagesUseCase;
 
   MainState _state = const MainState();
 
@@ -48,7 +48,7 @@ class MainViewModel with ChangeNotifier {
     switch (result) {
       case Success(:final data):
         _eventController.add(ShowSnackBar(
-            '$query search results are sorted by number of views, with the top 5.'));
+            '$query search results are sorted by number of views, with the top ${data.length}.'));
         _state = state.copyWith(isLoading: false, photos: data);
         notifyListeners();
 
