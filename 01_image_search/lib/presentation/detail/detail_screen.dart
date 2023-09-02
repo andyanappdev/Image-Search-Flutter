@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:image_search_app/domain/model/photo.dart';
 import 'package:image_search_app/presentation/detail/components/photo_detail_text.dart';
+import 'package:intl/intl.dart';
 
 class DetailScreen extends StatelessWidget {
   final Photo photo;
@@ -79,6 +78,7 @@ class DetailScreen extends StatelessWidget {
   }
 
   Widget buildPhotoDetail() {
+    final NumberFormat formatter = NumberFormat('#,###');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Column(
@@ -91,12 +91,12 @@ class DetailScreen extends StatelessWidget {
           const SizedBox(height: 10),
           PhotoDetailText(
             mainText: 'Total Views',
-            subText: photo.views.toString(),
+            subText: formatter.format(int.tryParse(photo.views.toString())),
           ),
           const SizedBox(height: 10),
           PhotoDetailText(
             mainText: 'Total Likes',
-            subText: photo.likes.toString(),
+            subText: formatter.format(int.tryParse(photo.likes.toString())),
           ),
           const SizedBox(height: 10),
           PhotoDetailText(
